@@ -1,0 +1,3 @@
+#!/bin/bash 
+printf "%s is part of %s
+" $USER $(groups)
