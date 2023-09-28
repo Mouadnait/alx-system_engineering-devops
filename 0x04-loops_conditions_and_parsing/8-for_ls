@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Display the content of the current directory in a list format
+
+for file in `ls`
+do
+    echo "${file}"
+done
