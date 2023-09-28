@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Displays the content of the file /etc/passwd
 
-cmd=$(cat /etc/passwd | cut -d ':' -f 1,2,3,6)
+cmd=$(cat /etc/passwd | cut -d ':' -f 1,3,6)
 len_cmd=$(cat /etc/passwd | wc -l)
 count=0
 while [[ $cmd ]]
