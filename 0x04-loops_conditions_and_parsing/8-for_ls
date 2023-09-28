@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Display the content of the current directory in a list format
 
-for file in `ls`
+for file in *
 do
-    new_name_file=$(echo "$file" | cut -d '-' -f 2-)
+    new_name_file=$(echo "$file" | cut -d '-' -f 2)
     echo "${new_name_file}"
 done
