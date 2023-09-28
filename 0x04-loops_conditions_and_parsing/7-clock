@@ -2,31 +2,14 @@
 # This script that displays the time for 12 hours and 59 minutes
 
 hour=0
-minutes=0
-while true
-do      
-    case $minutes in
-        0)
-            echo "Hour: ${hour}"
-        ;;
-        60)
-            ((hour++))
-            echo "Hour: ${hour}"
-            minutes=1
-        ;;
-        *)
-    esac
-
-    if [ ${minutes} -eq 59 ] && [ ${hour} -eq 12 ]
-    then
-        echo "${minutes}"
-        break
-    elif [ ${hour} -eq 13 ]
-    then
-        break
-    else
-        echo "${minutes}"
-    fi
-
-    ((minutes++))
+while [ $hour -le 12 ]
+do
+    echo "Hour: $hour"
+    minute=1
+    while [ $minute -le 59 ]
+    do
+        echo $minute
+        ((minute++))
+    done
+    ((hour++))
 done
