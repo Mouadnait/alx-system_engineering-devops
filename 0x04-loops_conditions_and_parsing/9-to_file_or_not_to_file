@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
-# Gives you information about the school file.
+# This script gives information about the school file.
 
-filename=school
-if [[ -e ${filename} ]]
+FILENAME=school
+if [[ -e ${FILENAME} ]]
 then
     echo "school file exists"
-elif [[ ! -e ${filename} ]]
+elif [[ ! -e ${FILENAME} ]]
 then
     echo "school file does not exist"
 fi
 
-if [[ ! -s ${filename} && -e ${filename} ]]
+if [[ ! -s ${FILENAME} && -e ${FILENAME} ]]
 then
     echo "school file is empty"
-elif [[ -s ${filename} && -e ${filename} ]]
+elif [[ -s ${FILENAME} && -e ${FILENAME} ]]
 then
     echo "school file is not empty"
 fi
 
-if [[ -f ${filename} && -e ${filename} ]]
+if [[ -f ${FILENAME} && -e ${FILENAME} ]]
 then
     echo "school is a regular file"
 fi
