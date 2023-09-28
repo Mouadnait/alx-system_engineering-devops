@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
 # This script that displays the time for 12 hours and 59 minutes
 
-count=0
+hour=0
 minutes=0
 while true
 do      
     case $minutes in
         0)
-            echo "Hour: ${minutes}"
+            echo "Hour: ${hour}"
         ;;
         60)
-            echo "Hour: ${minutes}"
+            ((hour++))
+            echo "Hour: ${hour}"
             minutes=1
-            ((count++))
         ;;
         *)
     esac
-        
-    if [[ $count -eq 13 ]]
+
+    if [ ${minutes} -eq 59 ] && [ ${hour} -eq 12 ]
+    then
+        echo "${minutes}"
+        break
+    elif [ ${hour} -eq 13 ]
     then
         break
     else
         echo "${minutes}"
-        if [[ $minutes -eq 59 && $count -eq 12 ]]
-        then
-            break
-        fi
     fi
 
     ((minutes++))
