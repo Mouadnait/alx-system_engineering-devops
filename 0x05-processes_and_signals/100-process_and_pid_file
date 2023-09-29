@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# # Run as root, echos pid into /var/run and traps then runs an infinite loop
+
+FILEPATH=/var/run/myscript.pid
+echo $$ > $FILEPATH
+
+trap 'echo "I hate the kill command"; exit 0; rm ${FILEPATH}' SIGTERM
+trap 'echo "Y U no love me?!"; exit 0; rm ${FILEPATH}' SIGINT
+
+while :
+do
+    echo 'To infinity and beyond'
+    sleep 2
+done
