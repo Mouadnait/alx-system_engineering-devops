@@ -4,8 +4,8 @@
 FILEPATH=/var/run/myscript.pid
 echo $$ > $FILEPATH
 
-trap 'echo "I hate the kill command"; exit 0; rm ${FILEPATH}' SIGTERM
-trap 'echo "Y U no love me?!"; exit 0; rm ${FILEPATH}' SIGINT
+trap 'echo "I hate the kill command"; rm ${FILEPATH}; exit 0' SIGTERM
+trap 'echo "Y U no love me?!"; rm ${FILEPATH}; exit 0' SIGINT
 
 while :
 do
