@@ -7,7 +7,6 @@
 #   ufw-before-output
 #   ufw-before-forward
 #
-
 # Redirect traffic from port 8080 to port 80
 *nat
 :PREROUTING ACCEPT [0:0]
