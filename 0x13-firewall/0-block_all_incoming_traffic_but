@@ -1,0 +1,8 @@
+#!/bin/bash env
+# script that sets up a few firewall rules on web-01.
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow status
