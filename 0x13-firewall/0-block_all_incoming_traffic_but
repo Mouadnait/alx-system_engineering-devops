@@ -1,13 +1,13 @@
-#!/bin/bash env
+#!/usr/bin/env bash
 # script that sets up a few firewall rules on web-01.
-sudo apt-get update
-sudo apt-get install -y ufw
-
+# deny all incoming and allow all outgoing traffic by default
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+# allow incoming ssh traffic
 sudo ufw allow ssh
+# allow incoming 80 (HTTP) traffic
 sudo ufw allow 80/tcp
+# allow incoming 443 (HTTPS SSL) traffic
 sudo ufw allow 443/tcp
-
+# enable ufw to apply the rules
 sudo ufw enable
-sudo ufw allow status
