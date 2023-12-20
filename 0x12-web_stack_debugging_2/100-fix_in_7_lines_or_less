@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# Fixes server bug
-# script should run the whoami command under the user passed 
-# as an argument and make sure to try your script by passing different users
-pkill -f apache2
-chown nginx:nginx /etc/nginx/nginx.conf
-chmod 700 /etc/nginx/nginx.conf
-sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-sudo -u nginx service nginx start
+#make the container work with only nginx user in less than 7 lines
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2
+su -c "service nginx start" nginx
