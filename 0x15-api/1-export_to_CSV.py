@@ -5,9 +5,9 @@ Usage: ./1-export_to_CSV.py 2
 where 2 is a user id
 Fake data from "https://jsonplaceholder.typicode.com"
 """
+import json
 import requests
 import sys
-import csv
 
 
 api_url = 'https://jsonplaceholder.typicode.com'
