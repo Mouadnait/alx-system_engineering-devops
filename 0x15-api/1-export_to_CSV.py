@@ -7,7 +7,7 @@ Fake data from "https://jsonplaceholder.typicode.com"
 """
 import requests
 import sys
-import json
+import csv
 
 
 api_url = 'https://jsonplaceholder.typicode.com'
