@@ -5,22 +5,12 @@ from sys import argv
 
 
 def number_of_subscribers(subreddit):
-    """Queries the Reddit API and returns the number of subscribers (not
-    active users, total subscribers) for a given subreddit.
-
-    If not a valid subreddit, return 0.
-    Invalid subreddits may return a redirect to search results. Ensure that
-    you are not following redirects.
-
-    Args:
-        subreddit (str): subreddit
-
-    Returns:
-        int: number of subscribers
-    """
+    '''
+    returns the number of subscribers for a given subreddit
+    '''
     user = {'User-Agent': 'Lizzie'}
     url = requests.get('https://www.reddit.com/r/{}/about.json'
-                       .format(subreddit), headers=user).json()
+                    .format(subreddit), headers=user).json()
     try:
         return url.get('data').get('subscribers')
     except Exception:
