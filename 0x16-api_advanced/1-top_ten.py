@@ -1,8 +1,6 @@
 #!/usr/bin/python3
+"""Module to interface with the reddit api"""
 import requests
-"""
-Module to interface with the reddit api
-"""
 
 
 def top_ten(subreddit):
@@ -19,17 +17,23 @@ def top_ten(subreddit):
     Returns:
         str: titles of the first 10 hot posts
     """
-    new_lst = []
-    count = 0
-    url = 'https://reddit.com/r/' + subreddit + '/hot/.json'
-    headers = {'User-Agent': "lala"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    try:
-        for data in response.json()['data'].get('children'):
-            new_lst.append(data['data'].get('title'))
-            count += 1
-            if count > 9:
-                break
-        print("\n".join(x for x in new_lst))
-    except Exception as err:
-        print("None")
+    base_url = 'https://www.reddit.com'
+    sort = 'top'
+    limit = 10
+    url = '{}/r/{}/.json?sort={}&limit={}'.format(
+        base_url, subreddit, sort, limit)
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
+        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
+    }
+    response = requests.get(
+        url,
+        headers=headers,
+        allow_redirects=False
+    )
+    if response.status_code == 200:
+        for post in response.json()['data']['children'][0:10]:
+            print(post['data']['title'])
+    else:
+        print(None)
